@@ -4,7 +4,7 @@
 void buscar_neg_zero(int vet[]){
 	int i;
 	for (i=0;i<10;i++){
-		if (vet[i]==0 || vet[i]<0){
+		if (vet[i]<=0){
 			vet[i]=1;
 		}
 	}
