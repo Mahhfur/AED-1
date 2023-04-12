@@ -21,7 +21,7 @@ typedef struct listaDE Lista;
 //inicializa a lista
 void Inicializa(Lista *L) {
   L->primeiroNo = NULL;
-	L->ultimoNo = NULL;
+  L->ultimoNo = NULL;
   L->tamanhoLista = 0;
 };
 
@@ -58,9 +58,7 @@ void inserirlista_lista(Lista *l, Lista *nl){
 //coloca a novaLista na lista l, antes do Indicacao 
 void indicaAmigo(Lista *l, char Indicacao[], Lista *novaLista) {
     No *aux = l->primeiroNo;
-		No* newNode = (No*) malloc(sizeof(No));
-    strcpy(newNode->info, Indicacao);
-
+	
 	// Indicação  é a primeira pessoa da lista
 	if (strcmp(aux->info, Indicacao) == 0) {
       inserirlista_lista(novaLista, l);
@@ -88,34 +86,34 @@ void imprime(Lista *l) {
     printf("%s ", nome);
     noAux = noAux->prox;
   }
-	char* name = strtok(noAux->info, "\n");
-	printf("%s", name);
+  char* name = strtok(noAux->info, "\n");
+  printf("%s", name);
   printf("\n");
 }
 
 int main(){
-  	char* lista_atual[1000];
+    char* lista_atual[1000];
     char* nova_lista[1000];
     char amigo_indicado[50];
     int i;
-		Lista listaAmigos, listaNovosAmigos;
-		Inicializa(&listaAmigos);
-		Inicializa(&listaNovosAmigos);
+    Lista listaAmigos, listaNovosAmigos;
+    Inicializa(&listaAmigos);
+    Inicializa(&listaNovosAmigos);
 
   //le a lista atual
-		fgets(lista_atual, 100, stdin);
-  	char* token = strtok(lista_atual, " \n");
+    fgets(lista_atual, 100, stdin);
+    char* token = strtok(lista_atual, " \n");
     while (token != NULL) {
         insere_final(&listaAmigos, token);
         token = strtok(NULL, " \n");
     }
 
 	//le a lista nova
-  	fgets(nova_lista, 100, stdin);
-  	token = strtok(nova_lista, " \n");
-  	while (token != NULL) {
-        insere_final(&listaNovosAmigos, token);
-        token = strtok(NULL, " \n");
+     fgets(nova_lista, 100, stdin);
+     token = strtok(nova_lista, " \n");
+     while (token != NULL) {
+    	 insere_final(&listaNovosAmigos, token);
+     	 token = strtok(NULL, " \n");
     }
 
  // Lê o nome do amigo que receberá a nova lista como indicação de amigos
@@ -123,12 +121,12 @@ int main(){
     amigo_indicado[strcspn(amigo_indicado, "\n")] = 0; // remove o caractere de nova linha
 
 //se nao houver indicado junta as listas
-		if (strcmp(amigo_indicado, "nao") == 0)  {
+    if (strcmp(amigo_indicado, "nao") == 0)  {
  	 		inserirlista_lista(&listaAmigos, &listaNovosAmigos);
 			imprime(&listaAmigos);
     }
-	else{
+    else{
 		indicaAmigo(&listaAmigos, amigo_indicado, &listaNovosAmigos);
 	
-	}
+    }
 }
