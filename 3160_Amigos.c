@@ -1,4 +1,4 @@
-/*ler em uma única linha a lista de amigos de Luiggy L, contendo somente o primeiro nome e separados por um espaço em branco.
+/*Ler em uma única linha a lista de amigos de Luiggy L, contendo somente o primeiro nome e separados por um espaço em branco.
 Na segunda linha deve ser informada a nova lista de amigos N. 
 Na última linha, o nome do amigo S da rede que deseja indicar também essa nova lista de amigos N. Caso não queira indicar para ninguém a nova lista de amigos, basta digitar na última linha a palavra “nao”.*/
 
